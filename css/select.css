@@ -1,0 +1,198 @@
+.default-select {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  color: #fff;
+}
+
+.gallery__subtitle {
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 32px;
+  color: #FFFFFF;
+}
+
+.default-select:focus {
+  outline: none;
+}
+
+.default-select:last-child {
+  margin-bottom: 0;
+}
+
+.default-select.is-open {
+  overflow: visible;
+}
+
+.default-select.is-disabled .default-select__inner,
+.default-select.is-disabled .default-select__input {
+  /* background-color: transparent; */
+  cursor: not-allowed;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.default-select.is-disabled .default-select__item {
+  cursor: not-allowed;
+}
+
+.default-select [hidden] {
+  display: none !important;
+}
+
+.default-select[data-type*="select-one"] {
+  cursor: pointer;
+}
+
+.default-select[data-type*="select-one"]::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  right: 17px;
+  top: 50%;
+  height: 8px;
+  width: 8px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #fff;
+  margin-top: -5px;
+  transform: rotate(45deg);
+  pointer-events: none;
+  /* transition: transform 0.3s ease, margin-top 0.3s ease; */
+}
+
+.default-select[data-type*="select-one"].is-open::after {
+  margin-top: -2px;
+  border-color: #fff;
+  transform: rotate(225deg);
+}
+
+
+.default-select__inner {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  background-color: transparent;
+  padding: 3px 25px 5px 16px;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+/* !!!! */
+.default-select__inner:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.is-focused .default-select__inner,
+.is-open .default-select__inner {
+  border-color: #fff;
+}
+
+.default-select__list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.default-select__list--single {
+  display: inline-block;
+  width: 100%;
+}
+
+.default-select__list--single .default-select__item {
+  width: 100%;
+}
+
+.default-select__list--dropdown,
+.default-select__list[aria-expanded] {
+  visibility: hidden;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  /* background: rgba(255, 255, 255, 0.2); */
+  border: 1px solid #fff;
+  top: 100%;
+  margin-top: -1px;
+  /* padding-top: 10px; */
+  border-radius: 6px;
+  color: #999999;
+  overflow: hidden;
+  word-break: break-all;
+  will-change: visibility;
+}
+
+.default-select__list--dropdown .default-select__placeholder {
+  display: none;
+}
+
+.is-active.default-select__list--dropdown,
+.is-active.default-select__list[aria-expanded] {
+  visibility: visible;
+}
+
+.is-open .default-select__list--dropdown,
+.is-open .default-select__list[aria-expanded] {
+  border-color: #fff;
+}
+
+.default-select__list--dropdown .default-select__list,
+.default-select__list[aria-expanded] .default-select__list {
+  position: relative;
+  max-height: 300px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
+}
+
+.default-select__list--dropdown .default-select__item,
+.default-select__list[aria-expanded] .default-select__item {
+  position: relative;
+  padding: 2px 15px;
+}
+
+/* !!!! hover-drop*/
+.default-select__list--dropdown .default-select__item--selectable.is-highlighted,
+.default-select__list[aria-expanded] .default-select__item--selectable.is-highlighted {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.default-select__list--dropdown .default-select__item--selectable.is-highlighted::after,
+.default-select__list[aria-expanded] .default-select__item--selectable.is-highlighted::after {
+  opacity: 0.5;
+}
+
+.default-select__item {
+  cursor: default;
+}
+
+.default-select__item:not(:last-child) {
+  border-bottom: 1px solid #999999;
+}
+
+.default-select__item--selectable {
+  cursor: pointer;
+}
+
+.default-select__item--disabled {
+  cursor: not-allowed;
+  -webkit-user-select: none;
+  user-select: none;
+  opacity: 0.5;
+}
+
+ @media (max-width: 1008px) {
+  .default-select__list--dropdown,
+  .default-select__list[aria-expanded] {
+    background: black;
+  }
+ }
